@@ -2,7 +2,7 @@
 
 A high-performance, GPU-accelerated backtesting framework for quantitative trading strategies using Numba CUDA kernels and CuPy for parallel computation.
 
-## 🚀 Features
+## Features
 
 - **GPU Acceleration**: Leverages NVIDIA GPUs for parallel computation of technical indicators
 - **Multiple Strategy Support**: CPU and GPU-accelerated trading strategies
