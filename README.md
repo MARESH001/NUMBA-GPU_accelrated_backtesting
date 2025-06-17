@@ -12,7 +12,7 @@ A high-performance, GPU-accelerated backtesting framework for quantitative tradi
 - **Portfolio Management**: Comprehensive position and risk management
 - **Performance Analytics**: Detailed performance metrics and equity curve visualization
 
-## 🏗️ Architecture
+## Architecture
 
 ### Core Components
 
@@ -30,14 +30,14 @@ The system uses CUDA kernels written with Numba for parallel computation:
 - **Signal Generation**: Parallel signal calculation across multiple data points
 - **Batch Processing**: Efficient processing of large datasets
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.8+
 - NVIDIA GPU with CUDA support
 - CUDA Toolkit 11.0+
 - Conda or pip package manager
 
-## 🛠️ Installation
+## Installation
 
 1. **Clone the repository**:
    ```bash
@@ -61,7 +61,7 @@ The system uses CUDA kernels written with Numba for parallel computation:
    conda install -c conda-forge cupy
    ```
 
-## 📊 Data Format
+## Data Format
 
 The system expects CSV files with the following columns:
 - `date`: Timestamp or date
@@ -71,41 +71,7 @@ The system expects CSV files with the following columns:
 - `close`: Closing price
 - `volume`: Trading volume
 
-Example:
-```csv
-date,open,high,low,close,volume
-2023-01-01 09:30:00,100.0,101.0,99.0,100.5,1000
-2023-01-01 09:31:00,100.5,102.0,100.0,101.5,1200
-```
 
-## 🎯 Usage
-
-### Basic Usage
-
-```python
-from backtest import Backtest
-from strategy import SimpleGPUStrategy
-from data_handler import HistoricCSVDataHandler
-from execution import SimulatedExecutionHandler
-from portfolio import Portfolio
-from datetime import datetime
-
-# Initialize backtest
-backtest = Backtest(
-    csv_dir=".",
-    symbol_list=["NIFTY INFRA_minute_data"],
-    initial_capital=100000.0,
-    heartbeat=0.0,
-    start_date=datetime(2010, 1, 1),
-    data_handler=HistoricCSVDataHandler,
-    execution_handler=SimulatedExecutionHandler,
-    portfolio=Portfolio,
-    strategy=SimpleGPUStrategy
-)
-
-# Run simulation
-backtest.simulate_trading()
-```
 
 ### Available Strategies
 
@@ -125,7 +91,7 @@ python backtest.py --csv-file "file_name.csv"
 ```
 Example: python backtest.py --csv-file "MSFT.csv"
 
-## 🔧 Configuration
+## Configuration
 
 ### Strategy Parameters
 
@@ -138,7 +104,7 @@ Example: python backtest.py --csv-file "MSFT.csv"
 - `commission`: Commission rate per trade (default: 0.1%)
 - `slippage`: Slippage percentage (default: 0.0%)
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 The system provides comprehensive performance analytics:
 
@@ -149,7 +115,7 @@ The system provides comprehensive performance analytics:
 - **Maximum Drawdown**: Largest peak-to-trough decline
 - **Execution Statistics**: Orders per second, fills per second
 
-## 🖥️ GPU Memory Management
+## GPU Memory Management
 
 The system includes GPU memory monitoring:
 
@@ -157,7 +123,7 @@ The system includes GPU memory monitoring:
 - Automatic memory cleanup
 - Memory profiling for optimization
 
-## 🚀 Performance Optimization
+##  Performance Optimization
 
 ### GPU Optimization Tips
 
@@ -171,7 +137,7 @@ The system includes GPU memory monitoring:
 - **GPU Strategy**: ~4 seconds for 932K data points (with overhead)
 - **GPU Advantage**: Scales better with larger datasets and complex indicators
 
-## 🐛 Debugging
+##  Debugging
 
 ### Common Issues
 
@@ -186,7 +152,7 @@ Enable debug output by modifying strategy parameters:
 self.debug_interval = 1000  # Print debug every 1000 bars
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 gpu_backtesting_numba/
